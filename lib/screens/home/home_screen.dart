@@ -1,5 +1,4 @@
 import 'package:bagzz/screens/home/home_screen_bloc.dart';
-import 'package:bagzz/util/global_variables.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,7 +9,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final GlobalVariables _gBloc = GlobalVariables();
   final HomeScreenBloc _bloc = HomeScreenBloc();
 
   @override
@@ -18,7 +16,6 @@ class _HomeScreenState extends State<HomeScreen> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: ListView(
@@ -67,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Container(
               width: size.width,
-              // height: 464,
+              height: 464,
               margin: const EdgeInsets.only(top: 30, bottom: 37),
               child: GridView.builder(
                 itemCount: _bloc.shopBagzz.length,

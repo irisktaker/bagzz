@@ -23,6 +23,17 @@ class _SelectedScreenState extends State<SelectedScreen> {
     BasketScreen(),
   ];
 
+  BottomNavigationBarItem btnNavBarItem({required String icon}) {
+    return BottomNavigationBarItem(
+      icon: Image.asset(
+        icon,
+        width: 20,
+        height: 20,
+      ),
+      label: '',
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,17 +76,17 @@ class _SelectedScreenState extends State<SelectedScreen> {
             _selectedScreenIndex = value;
           });
         },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_basket), label: ''),
+        items: [
+          btnNavBarItem(icon: 'assets/icons/homepage.png'),
+          btnNavBarItem(icon: 'assets/icons/search.png'),
+          btnNavBarItem(icon: 'assets/icons/heart.png'),
+          btnNavBarItem(icon: 'assets/icons/basket.png'),
         ],
         selectedItemColor: _gBloc.primaryColor,
         unselectedItemColor: _gBloc.primaryColor,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        // type: BottomNavigationBarType.fixed,
+        type: BottomNavigationBarType.fixed,
       ),
     );
   }
